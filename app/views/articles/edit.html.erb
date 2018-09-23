@@ -1,2 +1,4 @@
-<h1>Articles#edit</h1>
-<p>Find me in app/views/articles/edit.html.erb</p>
+<% provide(:button_text, '更新') %>
+<% provide(:url, article_path(@article)) %>
+
+<%= render 'form' %>
