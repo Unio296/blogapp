@@ -5,36 +5,22 @@
 <div id="article_wrap">
 
     <div id="article_list">
+
+        <% if @articles.empty? %>
+            投稿がありません
+        <% end %>
         
+        <% @articles.map do |article| %>
         <div>
-            <h2><a href="/single.html">Railsでnil? blank? empty? present?メソッドの違い</a></h2>
-            <p>2015-09-20</p>
+        <h2>
+            <%= link_to article.title, article_path(article.id) %>
+        </h2>
+        <p><%= article.created_at.strftime('%Y-%m-%d') %></p>
+        <%= link_to '編集', edit_article_path(article.id) %>
+        <%= link_to '削除', article_path(article.id), method: :delete %>
         </div>
-        
-        <div>
-            <h2><a href="/single.html">Github-flowで実践する初心者でも取り組みやすいGitワークフロー</a></h2>
-            <p>2015-09-17</p>
-        </div>
-        
-        <div>
-            <h2><a href="/single.html">メタリックなテキストやボタンを作成するチュートリアルまとめ</a></h2>
-            <p>2015-09-16</p>
-        </div>
-        
-        <div>
-            <h2><a href="/single.html">Photoshopのクリッピングパスを使いこなすために知っておきたいことまとめ</a></h2>
-            <p>2015-09-13</p>
-        </div>
-        
-        <div>
-            <h2><a href="/single.html">自由自在に選択範囲の作成ができるクイックマスク機能を使ってみよう</a></h2>
-            <p>2015-09-11</p>
-        </div>
-        
-        <div>
-            <h2><a href="/single.html">POPなどの印刷物をIllustratorで作る時にしてほしい設定</a></h2>
-            <p>2015-09-10</p>
-        </div>
+
+        <% end %>
 
     </div>
 

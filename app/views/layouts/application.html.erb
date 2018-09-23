@@ -12,6 +12,10 @@
   <body>
     <%= render 'layouts/header' %>
     
+    <%# flashメッセージ%>
+    <%= notice %>
+    <%= alert %>
+
     <%= yield %>
   
     <%= render 'layouts/footer' %>
