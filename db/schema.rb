@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_24_102413) do
+ActiveRecord::Schema.define(version: 2018_09_24_111547) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2018_09_24_102413) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
