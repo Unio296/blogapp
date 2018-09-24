@@ -26,12 +26,17 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     
     if @article.destroy
+      #PVランキングから削除
+      REDIS.zrem "ranking", @article.id
+
       flash.now[:success] = "投稿を削除しました"
     else
       flash.now[:danger] = "投稿を削除できませんでした"
     end
-    @articles = Article.all
-    render 'static_pages/home'
+    
+    #@articles = Article.all
+    #render 'static_pages/home'
+    redirect_to root_path
   end
 
   def edit
