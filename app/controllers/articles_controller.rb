@@ -17,6 +17,9 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    
+    #PVインクリメント
+    REDIS.zincrby "ranking", 1, @article.id
   end
 
   def destroy

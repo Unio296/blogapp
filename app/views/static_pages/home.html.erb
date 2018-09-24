@@ -30,9 +30,14 @@
         
         <h2>★PV数ランキング</h2>
         <ul>
-            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（10PV）</span></a></li>
-            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（8PV）</span></a></li>
-            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（2PV）</span></a></li>
+          <% @ids.each do |id, val| %>
+            <li>
+              <%= link_to article_path(id) do %>
+            	  <%= @articles.find(id).title %>
+              <% end %>
+							<span>(<%= val %>PV)</span>
+            </li>
+          <% end %>
         </ul>
     </div>
     <div class="clear"></div>
